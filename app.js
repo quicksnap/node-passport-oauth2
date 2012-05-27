@@ -8,6 +8,7 @@ var express = require('express')
 var GOOGLE_CLIENT_ID = "16968816828.apps.googleusercontent.com";
 var GOOGLE_CLIENT_SECRET = "R6JKmxJrfO1YxVGG6rwr5fE5";
 var port = process.env.PORT || 3000;
+var HOST = process.env.HOSTNAME || "http://localhost:" + port
 
 
 // Passport session setup.
@@ -33,7 +34,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/google/callback"
+    callbackURL: HOST + "/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...

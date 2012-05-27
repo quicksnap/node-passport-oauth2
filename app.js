@@ -7,6 +7,7 @@ var express = require('express')
 // https://code.google.com/apis/console/
 var GOOGLE_CLIENT_ID = "16968816828.apps.googleusercontent.com";
 var GOOGLE_CLIENT_SECRET = "R6JKmxJrfO1YxVGG6rwr5fE5";
+var port = process.env.PORT || 3000;
 
 
 // Passport session setup.
@@ -111,7 +112,7 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-app.listen(3000);
+app.listen(port);
 
 
 // Simple route middleware to ensure user is authenticated.
